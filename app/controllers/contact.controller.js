@@ -18,10 +18,6 @@ exports.create = async (req, res, next) => {
     }
 };
 
-exports.create = (req, res) => {
-    res.send({ message: "create handler" });
-};
-
 //Retrieve all contacts of a user from the database
 exports.findAll = async(req, res, next) => {
     let documents = [];
@@ -96,7 +92,7 @@ exports.delete = async (req, res, next) => {
    }
 };
 
-exports.deleteAll = async (_req, res, next) => {
+exports.deleteAll = async (req, res, next) => {
     try {
         const contactService = new ContactService(MongoDB.client);
         const deletedCount = await contactService.deleteAll();
@@ -110,7 +106,7 @@ exports.deleteAll = async (_req, res, next) => {
     }
 };
 
-exports.findAllFavorite = async (_req, res, next) => {
+exports.findAllFavorite = async (req, res, next) => {
     try {
         const contactService = new ContactService(MongoDB.client);
         const documents = await contactService.findFavorite();
